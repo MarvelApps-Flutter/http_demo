@@ -1,5 +1,5 @@
-# Flutter WebView Module
-A new flutter app for demonstrating WebView.
+# Flutter HTTP Module
+A flutter app demonstrating HTTP calls by using Movies DB database to show various details about movies.
 
 # Android Screenshots
 
