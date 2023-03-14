@@ -1,6 +1,14 @@
 # Flutter HTTP Module
 A flutter app demonstrating HTTP calls by using Movies DB database to show various details about movies.
 
+
+# Demo
+  <table>
+  <tr>
+  <td><img src="https://github.com/MarvelApps-Flutter/http_demo/blob/dev/working_demo/http_demo.gif" height="480px"></td>
+    </tr>
+  </table>
+
 # Android Screenshots
 
 <table>
@@ -38,9 +46,4 @@ A flutter app demonstrating HTTP calls by using Movies DB database to show vario
   </tr>
  </table>
 
- # Demo
-  <table>
-  <tr>
-  <td><img src="https://github.com/MarvelApps-Flutter/http_demo/blob/dev/working_demo/http_demo.gif" height="480px"></td>
-    </tr>
-  </table>
+ 
