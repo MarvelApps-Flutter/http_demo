@@ -29,9 +29,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  infinite_carousel: ^1.0.2
-  http: ^0.13.4
-  carousel_slider: ^4.0.0
+  infinite_carousel: ^1.0.3
+  http: ^1.1.0
+  carousel_slider: ^4.2.1
 
 
   # The following adds the Cupertino Icons font to your application.

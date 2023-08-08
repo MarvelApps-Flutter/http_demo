@@ -23,7 +23,7 @@ class DataConstants {
 
   static const String imageUrlPrefix = "https://image.tmdb.org/t/p/original";
 
-  List<Color> colors = [
+  static List<Color> colors = [
     Colors.red,
     Colors.blue.shade400,
     Colors.green,
@@ -32,7 +32,7 @@ class DataConstants {
     Colors.orange
   ];
 
-  List<String> genres = [
+  static List<String> genres = [
     "Action",
     "Thriller",
     "Adventure",

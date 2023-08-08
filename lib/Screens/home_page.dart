@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:http_movies_app/Constants/static_data_constants.dart';
-import 'package:http_movies_app/Models/genres_response_model.dart';
 import 'package:http_movies_app/Models/playing_now_model.dart';
 import 'package:http_movies_app/Models/popular_movies.dart';
 import 'package:http_movies_app/Models/top_rated.dart';
 import 'package:http_movies_app/Models/upcoming_movies.dart';
-import 'package:http_movies_app/Screens/movie_details_page.dart';
+import 'package:http_movies_app/screens/movie_details_page.dart';
 import 'package:http_movies_app/Services/api_functions.dart';
 import 'package:infinite_carousel/infinite_carousel.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -45,7 +43,6 @@ class _HomePageState extends State<HomePage> {
             carouselWidgetPopular(
                 MediaQuery.of(context).size.height * 0.30, 210),
             headingText(DataConstants.genresHeading, context),
-            //carouselWidget(MediaQuery.of(context).size.height * 0.10, 200)
             genresWidget(MediaQuery.of(context).size.height * 0.07, 200),
             headingText(DataConstants.upcomingMovies, context),
             carouselWidgetUpcoming(
@@ -65,13 +62,11 @@ class _HomePageState extends State<HomePage> {
         child: InfiniteCarousel.builder(
             itemCount: 10,
             itemExtent: itemExtent,
-            //380,
             itemBuilder: (BuildContext context, int itemIndex, int realIndex) {
               return Container(
                 margin: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                     color: Theme.of(context).primaryColor,
-                    //shape: BoxShape.circle,
                     borderRadius: BorderRadius.circular(8)),
                 child: Card(
                     color: Theme.of(context).primaryColor,
@@ -126,13 +121,11 @@ class _HomePageState extends State<HomePage> {
         child: InfiniteCarousel.builder(
             itemCount: 10,
             itemExtent: itemExtent,
-            //380,
             itemBuilder: (BuildContext context, int itemIndex, int realIndex) {
               return Container(
                 margin: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                     color: Theme.of(context).primaryColor,
-                    //shape: BoxShape.circle,
                     borderRadius: BorderRadius.circular(8)),
                 child: Card(
                     color: Theme.of(context).primaryColor,
@@ -162,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                                         );
                                       },
                                       child: Image.network(
-                                        "https://image.tmdb.org/t/p/original" +
+                                        DataConstants.imageUrlPrefix +
                                             snapshot.data!.results![itemIndex]
                                                 .posterPath!,
                                         fit: BoxFit.fill,
@@ -187,13 +180,11 @@ class _HomePageState extends State<HomePage> {
         child: InfiniteCarousel.builder(
             itemCount: 10,
             itemExtent: itemExtent,
-            //380,
             itemBuilder: (BuildContext context, int itemIndex, int realIndex) {
               return Container(
                 margin: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                     color: Theme.of(context).primaryColor,
-                    //shape: BoxShape.circle,
                     borderRadius: BorderRadius.circular(8)),
                 child: Card(
                     color: Theme.of(context).primaryColor,
@@ -223,7 +214,7 @@ class _HomePageState extends State<HomePage> {
                                         );
                                       },
                                       child: Image.network(
-                                        "https://image.tmdb.org/t/p/original" +
+                                        DataConstants.imageUrlPrefix +
                                             snapshot.data!.results![itemIndex]
                                                 .posterPath!,
                                         fit: BoxFit.fill,
@@ -285,7 +276,7 @@ class _HomePageState extends State<HomePage> {
                                         );
                                       },
                                       child: Image.network(
-                                        "https://image.tmdb.org/t/p/original" +
+                                        DataConstants.imageUrlPrefix +
                                             snapshot.data!.results![itemIndex]
                                                 .posterPath!,
                                         fit: BoxFit.fill,
@@ -369,25 +360,22 @@ class _HomePageState extends State<HomePage> {
         child: InfiniteCarousel.builder(
             itemCount: 6,
             itemExtent: itemExtent,
-            //380,
             itemBuilder: (BuildContext context, int itemIndex, int realIndex) {
               return Container(
                   margin: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                      // color: Theme.of(context).primaryColor,
-                      //shape: BoxShape.circle,
-                      borderRadius: BorderRadius.circular(8)),
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(8)),
                   child: InkWell(
                     onTap: () {
-                      print("Tapped" + genres[itemIndex]);
+                      print("Tapped" + DataConstants.genres[itemIndex]);
                     },
                     child: Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                          color: colors[itemIndex],
+                          color: DataConstants.colors[itemIndex],
                           borderRadius: BorderRadius.circular(30)),
                       child: Text(
-                        genres[itemIndex],
+                        DataConstants.genres[itemIndex],
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                             color: Colors.white,
@@ -409,22 +397,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-  List<Color> colors = [
-    Colors.red,
-    Colors.blue.shade400,
-    Colors.green,
-    Colors.purple,
-    Colors.pink,
-    Colors.orange
-  ];
-
-  List<String> genres = [
-    "Action",
-    "Thriller",
-    "Adventure",
-    "Horror",
-    "Comedy",
-    "Kids"
-  ];
 }
